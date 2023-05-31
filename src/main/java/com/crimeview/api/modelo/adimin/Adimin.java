@@ -1,7 +1,7 @@
 package com.crimeview.api.modelo.adimin;
 
 
-import java.time.LocalDate;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Adimin")
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
