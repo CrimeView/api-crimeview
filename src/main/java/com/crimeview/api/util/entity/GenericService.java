@@ -10,5 +10,10 @@ public class GenericService {
 
     public void preencherCamposAuditoria(Adimin adimin) {
     }
+
+    public void preencherCamposAuditoria(Dados dados) {
+    }
+
+    
     
 }
