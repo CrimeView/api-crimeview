@@ -1,13 +1,7 @@
 package com.crimeview.api.api.adimin;
 
-import java.time.LocalDate;
-
-import javax.validation.constraints.Email;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import com.crimeview.api.api.adimin.AdiminController;
 import com.crimeview.api.modelo.adimin.Adimin;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,15 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AdiminRequest {
 
-   private String senha;
-
    private String email;
 
+   private String senha;
 
    public Adimin build() {
-    
+
        return Adimin.builder()
-               .senha(senha)
                .email(email)
-               
+               .senha(senha)
+               .build();
+   }
 }
+

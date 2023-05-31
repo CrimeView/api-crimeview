@@ -30,7 +30,7 @@ public class Adimin extends EntidadeAuditavel  {
    private String email;
 
    @Column
-   private LocalDate senha;
+   private String senha;
 
 
 }

@@ -1,5 +1,8 @@
 package com.crimeview.api.modelo.adimin;
 
-public class AdiminRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AdiminRepository extends JpaRepository<Adimin, Long> {
+
+  
 }
