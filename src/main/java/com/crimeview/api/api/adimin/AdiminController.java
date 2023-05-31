@@ -14,7 +14,7 @@ import com.crimeview.api.modelo.adimin.AdiminService;
 import com.crimeview.api.util.entity.GenericController;
 
 @RestController
-@RequestMapping("/api/adimin")
+@RequestMapping("/api/admin")
 public class AdiminController extends GenericController {
 
    @Autowired

@@ -1,5 +1,7 @@
 package com.crimeview.api.modelo.dados;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,10 @@ public class DadosService extends GenericService {
 
        super.preencherCamposAuditoria(dados);
        return repository.save(dados);
+   }
+
+   public List<Dados> listAll() {
+          return repository.findAll();
    }
 
 }
