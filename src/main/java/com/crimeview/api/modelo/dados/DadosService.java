@@ -12,24 +12,25 @@ import com.crimeview.api.util.entity.GenericService;
 @Service
 public class DadosService extends GenericService {
 
-   @Autowired
-   private DadosRepository repository;
+    @Autowired
+    private DadosRepository repository;
 
-   @Transactional
-   public Dados save(Dados dados) {
+    @Transactional
+    public Dados save(Dados dados) {
 
-       super.preencherCamposAuditoria(dados);
-       return repository.save(dados);
-   }
+        super.preencherCamposAuditoria(dados);
+        return repository.save(dados);
+    }
 
-   public List<Dados> listarTodos() {
+    public List<Dados> listarTodos() {
   
-    return repository.findAll();
-}
-
-public Dados obterPorID(Long id) {
-
-    return repository.findById(id).get();
-}
+        return repository.findAll();
+    }
+ 
+    public Dados obterPorID(Long id) {
+ 
+        return repository.findById(id).get();
+    }
+ 
 
 }

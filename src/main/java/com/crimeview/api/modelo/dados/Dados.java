@@ -17,7 +17,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Dados")
-@Where(clause = "habilitado = true")
+@Where(clause = "status_dado = true")
 @Builder
 @Getter
 @Setter
