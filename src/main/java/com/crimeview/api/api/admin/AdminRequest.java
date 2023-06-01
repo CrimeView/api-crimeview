@@ -1,7 +1,6 @@
-package com.crimeview.api.api.adimin;
+package com.crimeview.api.api.admin;
 
-import com.crimeview.api.modelo.adimin.Adimin;
-
+import com.crimeview.api.modelo.admin.Admin;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,15 +11,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdiminRequest {
+public class AdminRequest {
 
    private String email;
 
    private String senha;
 
-   public Adimin build() {
+   public Admin build() {
 
-       return Adimin.builder()
+       return Admin.builder()
                .email(email)
                .senha(senha)
                .build();

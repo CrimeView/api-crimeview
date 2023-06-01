@@ -1,11 +1,8 @@
-package com.crimeview.api.modelo.adimin;
+package com.crimeview.api.modelo.admin;
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> dc956d05a7acc83faa5a6f05a7b8986209369647
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -21,18 +18,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-<<<<<<< HEAD
-@Table(name = "Adimin")
-=======
 @Table(name = "Admin")
->>>>>>> dc956d05a7acc83faa5a6f05a7b8986209369647
 @Where(clause = "habilitado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Adimin extends EntidadeAuditavel  {
+public class Admin extends EntidadeAuditavel  {
 
    @Column
    private String email;

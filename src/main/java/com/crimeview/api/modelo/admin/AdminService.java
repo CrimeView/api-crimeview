@@ -1,4 +1,4 @@
-package com.crimeview.api.modelo.adimin;
+package com.crimeview.api.modelo.admin;
 
 import java.util.List;
 
@@ -10,24 +10,24 @@ import org.springframework.stereotype.Service;
 import com.crimeview.api.util.entity.GenericService;
 
 @Service
-public class AdiminService extends GenericService {
+public class AdminService extends GenericService {
 
    @Autowired
-   private AdiminRepository repository;
+   private AdminRepository repository;
 
    @Transactional
-   public Adimin save(Adimin adimin) {
+   public Admin save(Admin admin) {
 
-       super.preencherCamposAuditoria(adimin);
-       return repository.save(adimin);
+       super.preencherCamposAuditoria(admin);
+       return repository.save(admin);
    }
 
-   public List<Adimin> listarTodos() {
+   public List<Admin> listarTodos() {
   
     return repository.findAll();
 }
 
-public Adimin obterPorID(Long id) {
+public Admin obterPorID(Long id) {
 
     return repository.findById(id).get();
 }

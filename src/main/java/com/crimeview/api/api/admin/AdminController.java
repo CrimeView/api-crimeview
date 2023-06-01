@@ -1,4 +1,4 @@
-package com.crimeview.api.api.adimin;
+package com.crimeview.api.api.admin;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -13,35 +13,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crimeview.api.modelo.adimin.Adimin;
-import com.crimeview.api.modelo.adimin.AdiminService;
+import com.crimeview.api.modelo.admin.Admin;
+import com.crimeview.api.modelo.admin.AdminService;
 import com.crimeview.api.util.entity.GenericController;
 
 @RestController
 @RequestMapping("/api/admin")
-public class AdiminController extends GenericController {
+public class AdminController extends GenericController {
 
    @Autowired
-   private AdiminService adiminService;
+   private AdminService adminService;
 
    @PostMapping
-   public ResponseEntity<Adimin> save(@RequestBody @Valid AdiminRequest request) {
+   public ResponseEntity<Admin> save(@RequestBody @Valid AdminRequest request) {
 
       
-       Adimin adimin = adiminService.save(request.build());
-       return new ResponseEntity<Adimin>(adimin, HttpStatus.CREATED);
+       Admin admin = adminService.save(request.build());
+       return new ResponseEntity<Admin>(admin, HttpStatus.CREATED);
    }
 
    @GetMapping
-   public List<Adimin> listarTodos() {
+   public List<Admin> listarTodos() {
   
-       return adiminService.listarTodos();
+       return adminService.listarTodos();
    }
 
    @GetMapping("/{id}")
-   public Adimin obterPorID(@PathVariable Long id) {
+   public Admin obterPorID(@PathVariable Long id) {
 
-       return adiminService.obterPorID(id);
+       return adminService.obterPorID(id);
    }
 
 
