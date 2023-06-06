@@ -49,11 +49,9 @@ public Admin obterPorID(Long id) {
 public void update(Long id, Admin adminAlterado) {
 
    Admin admin = repository.findById(id).get();
-   admin.setNome(adminAlterado.getNome());
-   admin.setDataNascimento(adminAlterado.getDataNascimento());
-   admin.setCpf(adminAlterado.getCpf());
-   admin.setFoneCelular(adminAlterado.getFoneCelular());
-   admin.setFoneFixo(adminAlterado.getFoneFixo());
+   admin.setEmail(adminAlterado.getEmail());
+   admin.setSenha(adminAlterado.getSenha());
+   
      
    super.preencherCamposAuditoria(admin);
    repository.save(admin);
