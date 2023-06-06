@@ -47,5 +47,8 @@ public void update(Long id, Admin adminAlterado) {
    repository.save(admin);
 }
 
+public void delete(Long id) {
+}
+
 
 }
