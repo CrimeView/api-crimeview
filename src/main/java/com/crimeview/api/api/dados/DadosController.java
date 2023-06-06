@@ -54,4 +54,8 @@ public class DadosController extends GenericController {
         dadosService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
+
+    
+
 }
+
