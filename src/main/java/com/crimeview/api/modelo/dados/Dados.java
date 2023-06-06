@@ -23,7 +23,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Dados extends EntidadeAuditavel {
 
     @Column
@@ -41,8 +40,8 @@ public class Dados extends EntidadeAuditavel {
     @Column
     private String vitima;
 
-    @Column
-    private Boolean status_dado;
+    @Column(name = "status_dado")
+    private Boolean statusDado;
 
     private Integer id_usuario;
 

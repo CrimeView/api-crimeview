@@ -2,8 +2,6 @@ package com.crimeview.api.api.dados;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import com.crimeview.api.modelo.dados.Dados;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +18,6 @@ public class DadosRequest {
 
    private String regiao;
 
-   @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate data;
 
    private String natureza;
@@ -41,7 +38,7 @@ public class DadosRequest {
                .natureza(natureza)
                .municipio(municipio)
                .vitima(vitima)
-               .status_dado(status_dado)
+               .statusDado(status_dado)
                .id_usuario(id_usuario)
                .build();
    }

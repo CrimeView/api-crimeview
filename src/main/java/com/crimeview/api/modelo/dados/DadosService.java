@@ -17,47 +17,50 @@ public class DadosService extends GenericService {
 
     @Transactional
     public void delete(Long id) {
- 
-        Dados dados = repository.findById(id).get();
-        dados.setHabilitado(Boolean.FALSE);
+        Dados dados = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Dados não encontrados para o ID: " + id));
+        if (!dados.getStatusDado()) {
+            throw new IllegalArgumentException(
+                    "Os dados com o ID: " + id + " já estão marcados como excluídos logicamente.");
+        }
+        dados.setStatusDado(false);
         super.preencherCamposAuditoria(dados);
- 
         repository.save(dados);
     }
 
     @Transactional
     public Dados save(Dados dados) {
-
         super.preencherCamposAuditoria(dados);
         return repository.save(dados);
     }
 
     public List<Dados> listarTodos() {
-  
-        return repository.findAll();
+        return repository.findAllByStatusDadoTrue();
     }
- 
+
     public Dados obterPorID(Long id) {
- 
-        return repository.findById(id).get();
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Dados não encontrados para o ID: " + id));
     }
 
     @Transactional
-   public void update(Long id, Dados dadoAlterado) {
-
-      Dados dado = repository.findById(id).get();
-      dado.setRegiao(dadoAlterado.getRegiao());
-      dado.setData(dadoAlterado.getData());
-      dado.setNatureza(dadoAlterado.getNatureza());
-      dado.setMunicipio(dadoAlterado.getMunicipio());
-      dado.setVitima(dadoAlterado.getVitima());
-      dado.setStatus_dado(dadoAlterado.getStatus_dado());
-      dado.setId_usuario(dadoAlterado.getId_usuario());
-	    
-      super.preencherCamposAuditoria(dado);
-      repository.save(dado);
-  }
-
- 
+public void update(Long id, Dados dadoAlterado) {
+    Dados dado = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Dados não encontrados para o ID: " + id));
+    
+    if (!dado.getStatusDado()) {
+        throw new IllegalArgumentException("Os dados com o ID: " + id + " já estão marcados como excluídos logicamente.");
+    }
+    
+    dado.setRegiao(dadoAlterado.getRegiao());
+    dado.setData(dadoAlterado.getData());
+    dado.setNatureza(dadoAlterado.getNatureza());
+    dado.setMunicipio(dadoAlterado.getMunicipio());
+    dado.setVitima(dadoAlterado.getVitima());
+    dado.setStatusDado(dadoAlterado.getStatusDado());
+    dado.setId_usuario(dadoAlterado.getId_usuario());
+	
+    super.preencherCamposAuditoria(dado);
+    repository.save(dado);
+}
 
 }
