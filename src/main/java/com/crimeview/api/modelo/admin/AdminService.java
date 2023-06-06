@@ -20,7 +20,7 @@ public class AdminService extends GenericService {
 
    @Transactional
    public Admin save(Admin admin) {
-
+    admin.setHabilitado(Boolean.TRUE);
        super.preencherCamposAuditoria(admin);
        return repository.save(admin);
    }
@@ -42,21 +42,13 @@ public void update(Long id, Admin adminAlterado) {
    Admin admin = repository.findById(id).get();
    admin.setEmail(adminAlterado.getEmail());
    admin.setSenha(adminAlterado.getSenha());
-   
      
    super.preencherCamposAuditoria(admin);
    repository.save(admin);
 }
 
-@Transactional
-   public void delete(Long id) {
-
-       Admin admin = repository.findById(id).get();
-       admin.setHabilitado(Boolean.FALSE);
-       super.preencherCamposAuditoria(admin);
-
-       repository.save(admin);
-   }
+public void delete(Long id) {
+}
 
 
 }
