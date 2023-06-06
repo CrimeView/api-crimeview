@@ -31,6 +31,23 @@ public class DadosService extends GenericService {
  
         return repository.findById(id).get();
     }
+
+    @Transactional
+   public void update(Long id, Dados dadoAlterado) {
+
+      Dados dado = repository.findById(id).get();
+      dado.setRegiao(dadoAlterado.getRegiao());
+      dado.setData(dadoAlterado.getData());
+      dado.setNatureza(dadoAlterado.getNatureza());
+      dado.setMunicipio(dadoAlterado.getMunicipio());
+      dado.setVitima(dadoAlterado.getVitima());
+      dado.setStatus_dado(dadoAlterado.getStatus_dado());
+      dado.setId_usuario(dadoAlterado.getId_usuario());
+	    
+      super.preencherCamposAuditoria(dado);
+      repository.save(dado);
+  }
+
  
 
 }
