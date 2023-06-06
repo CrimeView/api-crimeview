@@ -47,8 +47,17 @@ public void update(Long id, Admin adminAlterado) {
    repository.save(admin);
 }
 
-public void delete(Long id) {
-}
+
+
+@Transactional
+   public void delete(Long id) {
+
+       Admin admin = repository.findById(id).get();
+       admin.setHabilitado(Boolean.FALSE);
+       super.preencherCamposAuditoria(admin);
+
+       repository.save(admin);
+   }
 
 
 }
