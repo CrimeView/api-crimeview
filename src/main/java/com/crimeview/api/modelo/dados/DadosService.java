@@ -16,6 +16,16 @@ public class DadosService extends GenericService {
     private DadosRepository repository;
 
     @Transactional
+    public void delete(Long id) {
+ 
+        Dados dados = repository.findById(id).get();
+        dados.setHabilitado(Boolean.FALSE);
+        super.preencherCamposAuditoria(dados);
+ 
+        repository.save(dados);
+    }
+
+    @Transactional
     public Dados save(Dados dados) {
 
         super.preencherCamposAuditoria(dados);
