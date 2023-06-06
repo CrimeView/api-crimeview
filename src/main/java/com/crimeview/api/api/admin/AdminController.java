@@ -40,6 +40,8 @@ public class AdminController extends GenericController {
        return ResponseEntity.ok().build();
    }
 
+
+   
    @PutMapping("/{id}")
    public ResponseEntity<Admin> update(@PathVariable("id") Long id, @RequestBody AdminRequest request) {
 
