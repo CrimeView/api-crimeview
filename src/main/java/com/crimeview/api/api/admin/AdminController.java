@@ -41,9 +41,9 @@ public class AdminController extends GenericController {
    }
 
    @PutMapping("/{id}")
-   public ResponseEntity<Cliente> update(@PathVariable("id") Long id, @RequestBody ClienteRequest request) {
+   public ResponseEntity<Admin> update(@PathVariable("id") Long id, @RequestBody AdminRequest request) {
 
-       clienteService.update(id, request.build());
+       adminService.update(id, request.build());
        return ResponseEntity.ok().build();
    }
 
