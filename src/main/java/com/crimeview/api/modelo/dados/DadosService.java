@@ -24,13 +24,11 @@ public class DadosService extends GenericService {
                     "Os dados com o ID: " + id + " já estão marcados como excluídos logicamente.");
         }
         dados.setStatusDado(false);
-        super.preencherCamposAuditoria(dados);
         repository.save(dados);
     }
 
     @Transactional
     public Dados save(Dados dados) {
-        super.preencherCamposAuditoria(dados);
         return repository.save(dados);
     }
 
@@ -59,7 +57,7 @@ public void update(Long id, Dados dadoAlterado) {
     dado.setStatusDado(dadoAlterado.getStatusDado());
     dado.setId_usuario(dadoAlterado.getId_usuario());
 	
-    super.preencherCamposAuditoria(dado);
+    
     repository.save(dado);
 }
 

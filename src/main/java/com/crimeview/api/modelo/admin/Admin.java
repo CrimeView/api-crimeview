@@ -5,11 +5,10 @@ package com.crimeview.api.modelo.admin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
-
-import com.crimeview.api.util.entity.EntidadeAuditavel;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,13 +24,19 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin extends EntidadeAuditavel  {
+public class Admin {
+
+   @Id
+    private Long id;
 
    @Column
    private String email;
 
    @Column
    private String senha;
+
+   @Column
+   private Boolean habilitado;
 
 
 }
