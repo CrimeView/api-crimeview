@@ -51,6 +51,6 @@ public class DadosReport {
     @Column(name = "status_dado")
     private Boolean statusDado;
 
-    private Integer id_usuario;
+    private String id_usuario;
 
 }

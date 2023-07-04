@@ -1,9 +1,6 @@
 package com.crimeview.api.api.dadosReport;
 
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
-
-import org.springframework.cglib.core.Local;
 
 import com.crimeview.api.modelo.dadosReport.DadosReport;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -32,7 +29,7 @@ public class DadosReportRequest {
 
     private Boolean statusDado;
 
-    private Integer id_usuario;
+    private String id_usuario;
 
     public DadosReport build() {
         return DadosReport.builder()
