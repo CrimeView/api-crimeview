@@ -1,5 +1,4 @@
-package com.crimeview.api.modelo.dados;
-
+package com.crimeview.api.modelo.dadosReport;
 
 import java.time.LocalDate;
 
@@ -11,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
+import org.springframework.data.annotation.CreatedDate;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,14 +19,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Dados")
+@Table(name = "DadosReport")
 @Where(clause = "status_dado = true")
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Dados {
+public class DadosReport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,6 +36,7 @@ public class Dados {
     private String regiao;
 
     @Column
+    @CreatedDate
     private LocalDate data;
 
     @Column
@@ -49,5 +50,7 @@ public class Dados {
 
     @Column(name = "status_dado")
     private Boolean statusDado;
+
+    private Integer id_usuario;
 
 }
