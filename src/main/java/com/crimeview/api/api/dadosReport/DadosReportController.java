@@ -1,4 +1,4 @@
-package com.crimeview.api.api.dados;
+package com.crimeview.api.api.dadosReport;
 
 import java.util.List;
 
@@ -20,36 +20,35 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 
-import com.crimeview.api.modelo.dados.Dados;
-import com.crimeview.api.modelo.dados.DadosService;
+import com.crimeview.api.modelo.dadosReport.DadosReportService;
+import com.crimeview.api.modelo.dadosReport.DadosReport;
 import com.crimeview.api.util.entity.GenericController;
 
-import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api/dados")
-public class DadosController extends GenericController {
+@RequestMapping("/api/dadosReport")
+public class DadosReportController extends GenericController {
 
     @Autowired
-    private DadosService dadosService;
+    private DadosReportService dadosReportService;
 
     @ApiOperation(value = "Serviço responsável por salvar um dado.")
     @PostMapping
-    public ResponseEntity<Dados> save(@RequestBody @Valid DadosRequest request) {
-        Dados dados = dadosService.save(request.build());
-        return new ResponseEntity<Dados>(dados, HttpStatus.CREATED);
+    public ResponseEntity<DadosReport> save(@RequestBody @Valid DadosReportRequest request) {
+        DadosReport dados = dadosReportService.save(request.build());
+        return new ResponseEntity<DadosReport>(dados, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        dadosService.delete(id);
+        dadosReportService.delete(id);
         return ResponseEntity.ok().build();
     }
 
     @ApiOperation(value = "Serviço responsável por listar todos os dados.")
     @GetMapping
-    public List<Dados> listarTodos() {
-        return dadosService.listarTodos();
+    public List<DadosReport> listarTodos() {
+        return dadosReportService.listarTodos();
     }
 
     @ApiOperation(value = "Serviço responsável por obter um dado referente ao Id passado na URL.")
@@ -62,13 +61,13 @@ public class DadosController extends GenericController {
     })
 
     @GetMapping("/{id}")
-    public Dados obterPorID(@PathVariable Long id) {
-        return dadosService.obterPorID(id);
+    public DadosReport obterPorID(@PathVariable Long id) {
+        return dadosReportService.obterPorID(id);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Dados> update(@PathVariable("id") Long id, @RequestBody DadosRequest request) {
-        dadosService.update(id, request.build());
+    public ResponseEntity<DadosReport> update(@PathVariable("id") Long id, @RequestBody DadosReportRequest request) {
+        dadosReportService.update(id, request.build());
         return ResponseEntity.ok().build();
     }
 

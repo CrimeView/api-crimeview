@@ -1,8 +1,11 @@
-package com.crimeview.api.api.dados;
+package com.crimeview.api.api.dadosReport;
 
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
-import com.crimeview.api.modelo.dados.Dados;
+import org.springframework.cglib.core.Local;
+
+import com.crimeview.api.modelo.dadosReport.DadosReport;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -14,11 +17,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DadosRequest {
+public class DadosReportRequest {
 
     private String regiao;
 
-    private LocalDate data;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate data = LocalDate.now();
 
     private String natureza;
 
@@ -30,14 +34,15 @@ public class DadosRequest {
 
     private Integer id_usuario;
 
-    public Dados build() {
-        return Dados.builder()
+    public DadosReport build() {
+        return DadosReport.builder()
                 .regiao(regiao)
                 .data(data)
                 .natureza(natureza)
                 .municipio(municipio)
                 .vitima(vitima)
                 .statusDado(statusDado)
+                .id_usuario(id_usuario)
                 .build();
     }
 }
