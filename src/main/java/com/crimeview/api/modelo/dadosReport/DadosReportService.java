@@ -30,6 +30,10 @@ public class DadosReportService extends GenericService {
         return repository.findById(id).get();
     }
 
+    public List<DadosReport> listarReportsPorUsuario(String id_usuario) {
+        return repository.findAllByUsuarioId(id_usuario);
+    }
+
     @Transactional
     public void update(Long id, DadosReport dadosAlterado) {
 
