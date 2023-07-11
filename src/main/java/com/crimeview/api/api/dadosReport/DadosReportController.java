@@ -19,11 +19,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-
 import com.crimeview.api.modelo.dadosReport.DadosReportService;
 import com.crimeview.api.modelo.dadosReport.DadosReport;
 import com.crimeview.api.util.entity.GenericController;
-
 
 @RestController
 @RequestMapping("/api/dadosReport")
@@ -63,6 +61,11 @@ public class DadosReportController extends GenericController {
     @GetMapping("/{id}")
     public DadosReport obterPorID(@PathVariable Long id) {
         return dadosReportService.obterPorID(id);
+    }
+
+    @GetMapping("/user/{id_usuario}")
+    public List<DadosReport> listarReportsPorUsuario(@PathVariable String id_usuario) {
+        return dadosReportService.listarReportsPorUsuario(id_usuario);
     }
 
     @PutMapping("/{id}")
