@@ -43,6 +43,10 @@ public void update(Long id, Admin adminAlterado) {
    repository.save(admin);
 }
 
+public Admin getByEmail(String email) {
+    return repository.findByEmail(email);
+}
+
 
 
 @Transactional
@@ -52,6 +56,7 @@ public void update(Long id, Admin adminAlterado) {
 
        repository.save(admin);
    }
+   
 
 
 }
